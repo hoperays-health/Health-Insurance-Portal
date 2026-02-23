@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Upload } from "lucide-react";
 import { useState } from "react";
-import AuthLayout from "@/app/(auth)/layout";
+import AuthLayout from "@/components/layouts/AuthLayout";
 
 export default function OnboardingStep1() {
   const router = useRouter();
@@ -73,7 +73,7 @@ export default function OnboardingStep1() {
             Create Company Account
           </h2>
           <p className="text-sm text-gray-500 mt-1">
-            Let's start by setting up your company profile
+            Let&#39;s start by setting up your company profile
           </p>
         </div>
 

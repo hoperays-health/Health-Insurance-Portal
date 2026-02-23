@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, Check, X, AlertCircle } from "lucide-react";
 import { useState } from "react";
-import AuthLayout from "@/app/(auth)/layout";
+import AuthLayout from "@/components/layouts/AuthLayout";
 
 export default function OnboardingStep4() {
   const router = useRouter();

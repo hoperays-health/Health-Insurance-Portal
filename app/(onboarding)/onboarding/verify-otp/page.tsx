@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useOnboardingStore } from "@/store/onboarding-store";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Mail, ArrowLeft, Loader2 } from "lucide-react";
-import AuthLayout from "@/app/(auth)/layout";
+import AuthLayout from "@/components/layouts/AuthLayout";
 
 const OTP_LENGTH = 6;
 const RESEND_COOLDOWN = 60; // seconds

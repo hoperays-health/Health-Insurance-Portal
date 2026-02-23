@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 // import { Button } from "@/components/ui/button";
-import AuthLayout from "@/app/(auth)/layout";
+import AuthLayout from "@/components/layouts/AuthLayout";
 
 export default function VerifyEmail() {
   const [isResending, setIsResending] = useState(false);

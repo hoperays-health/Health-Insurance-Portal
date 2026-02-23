@@ -24,7 +24,6 @@ class ApiClient {
       },
     };
 
-    // Add auth token if available
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("auth_token");
       if (token) {
@@ -38,7 +37,6 @@ class ApiClient {
     try {
       const response = await fetch(url, config);
 
-      // Handle non-JSON responses
       const contentType = response.headers.get("content-type");
       if (!contentType?.includes("application/json")) {
         if (!response.ok) {
@@ -71,9 +69,10 @@ class ApiClient {
     return this.request<T>(endpoint, { ...options, method: "GET" });
   }
 
+  // FIX: `data` typed as `Record<string, unknown>` instead of `any`
   async post<T>(
     endpoint: string,
-    data?: any,
+    data?: Record<string, unknown>,
     options?: RequestInit,
   ): Promise<T> {
     return this.request<T>(endpoint, {
@@ -85,7 +84,7 @@ class ApiClient {
 
   async put<T>(
     endpoint: string,
-    data?: any,
+    data?: Record<string, unknown>,
     options?: RequestInit,
   ): Promise<T> {
     return this.request<T>(endpoint, {
@@ -97,7 +96,7 @@ class ApiClient {
 
   async patch<T>(
     endpoint: string,
-    data?: any,
+    data?: Record<string, unknown>,
     options?: RequestInit,
   ): Promise<T> {
     return this.request<T>(endpoint, {

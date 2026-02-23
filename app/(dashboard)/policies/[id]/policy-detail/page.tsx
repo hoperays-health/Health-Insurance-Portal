@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 import StatusBadge from "@/components/ui/StatusBadge";
 import { ArrowLeft } from "lucide-react";
@@ -13,12 +16,12 @@ const payments: PaymentRecord[] = Array.from({ length: 5 }, () => ({
   amount: "N200,000",
 }));
 
-export default function PolicyDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  usePageTitle(`Policy Details - ${params.id}`);
+export default function PolicyDetailPage() {
+  const params = useParams<{ id: string }>();
+  const policyId = params.id;
+
+  usePageTitle(`Policy Details - ${policyId}`);
+
   return (
     <>
       <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 max-w-4xl">
@@ -34,7 +37,7 @@ export default function PolicyDetailPage({
         <div className="grid grid-cols-3 gap-4 pb-5 border-b border-gray-100">
           <div>
             <p className="text-xs text-gray-400 mb-1">Policy ID</p>
-            <p className="text-sm font-semibold text-gray-800">POL-123-990</p>
+            <p className="text-sm font-semibold text-gray-800">{policyId}</p>
           </div>
           <div>
             <p className="text-xs text-gray-400 mb-1">Status</p>
@@ -42,7 +45,7 @@ export default function PolicyDetailPage({
           </div>
           <div>
             <p className="text-xs text-gray-400 mb-1">Policy ID</p>
-            <p className="text-sm font-semibold text-gray-800">POL-123-990</p>
+            <p className="text-sm font-semibold text-gray-800">{policyId}</p>
           </div>
         </div>
 
@@ -54,7 +57,7 @@ export default function PolicyDetailPage({
           <div className="grid grid-cols-4 gap-4">
             {[
               { label: "Name", value: "John Smith" },
-              { label: "Policy ID", value: "johnsmith@gmail.com" },
+              { label: "Email", value: "johnsmith@gmail.com" },
               { label: "Phone Number", value: "+234-908872727" },
               { label: "Region", value: "North West" },
             ].map(({ label, value }) => (
@@ -96,7 +99,9 @@ export default function PolicyDetailPage({
               { header: "Date", accessor: "date", sortable: true },
               {
                 header: "Status",
-                render: (row) => <StatusBadge status={row.status} />,
+                render: (row: PaymentRecord) => (
+                  <StatusBadge status={row.status} />
+                ),
               },
               { header: "Amount", accessor: "amount" },
             ]}

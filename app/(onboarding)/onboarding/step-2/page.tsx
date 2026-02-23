@@ -10,8 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ChevronLeft, Loader2, CheckCircle, XCircle } from "lucide-react";
-import AuthLayout from "@/app/(auth)/layout";
-
+import AuthLayout from "@/components/layouts/AuthLayout";
 export default function OnboardingStep2() {
   const router = useRouter();
   const {

@@ -51,7 +51,7 @@ export function UploadField({
     if (!file) return;
 
     setProgress(0);
-    let interval = setInterval(() => {
+    const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);

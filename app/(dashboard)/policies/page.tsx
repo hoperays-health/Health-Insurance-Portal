@@ -54,6 +54,7 @@ export default function PoliciesPage() {
 
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   usePageTitle("Policies");
+
   return (
     <>
       <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
@@ -97,7 +98,7 @@ export default function PoliciesPage() {
           </div>
         </div>
 
-        {/* Table */}
+        {/* Table — row is now typed as Policy */}
         <DataTable<Policy>
           columns={[
             { header: "Policy ID", accessor: "id", sortable: true },
@@ -105,15 +106,13 @@ export default function PoliciesPage() {
             { header: "Plan", accessor: "plan" },
             {
               header: "Status",
-              render: (row: { status: string }) => (
-                <StatusBadge status={row.status} />
-              ),
+              render: (row: Policy) => <StatusBadge status={row.status} />,
             },
             { header: "Amount", accessor: "amount" },
             { header: "Region", accessor: "region" },
             {
               header: "Action",
-              render: (row: { id: any }) => (
+              render: (row: Policy) => (
                 <button
                   title="navigation"
                   onClick={(e) => {
@@ -128,10 +127,9 @@ export default function PoliciesPage() {
             },
           ]}
           data={paginated}
-          onRowClick={(row: { id: any }) => router.push(`/policies/${row.id}`)}
+          onRowClick={(row: Policy) => router.push(`/policies/${row.id}`)}
         />
 
-        {/* Pagination */}
         <Pagination
           currentPage={page}
           totalPages={Math.ceil(filtered.length / PAGE_SIZE)}

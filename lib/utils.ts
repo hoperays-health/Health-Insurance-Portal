@@ -27,9 +27,6 @@ export function formatDate(
   return new Intl.DateTimeFormat("en-US", options).format(new Date(date));
 }
 
-/**
- * Format relative time
- */
 export function formatRelativeTime(date: string | Date): string {
   const now = new Date();
   const then = new Date(date);
@@ -46,21 +43,17 @@ export function formatRelativeTime(date: string | Date): string {
   return "Just now";
 }
 
-/**
- * Truncate text
- */
 export function truncate(text: string, length: number = 50): string {
   if (text.length <= length) return text;
   return text.substring(0, length) + "...";
 }
 
-//  Generate random ID
-
 export function generateId(): string {
   return Math.random().toString(36).substring(2) + Date.now().toString(36);
 }
 
-export function debounce<T extends (...args: any[]) => any>(
+// FIX: Replace `any` with `unknown[]` for generic args
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number,
 ): (...args: Parameters<T>) => void {
@@ -77,12 +70,9 @@ export function debounce<T extends (...args: any[]) => any>(
   };
 }
 
-//  Sleep/delay function
 export function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
-//  Get initials from name
 
 export function getInitials(name: string): string {
   return name
@@ -93,13 +83,9 @@ export function getInitials(name: string): string {
     .substring(0, 2);
 }
 
-// Format percentage
-
 export function formatPercentage(value: number, decimals: number = 1): string {
   return `${value >= 0 ? "+" : ""}${value.toFixed(decimals)}%`;
 }
-
-//  Format number with commas
 
 export function formatNumber(num: number): string {
   return new Intl.NumberFormat("en-US").format(num);
