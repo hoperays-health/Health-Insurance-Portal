@@ -8,6 +8,7 @@
       {
         "select-name": "off"
       }
-    ]
+    ],
+    "axe/aria": "off"
   }
 }

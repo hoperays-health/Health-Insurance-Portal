@@ -3,7 +3,7 @@ import {
   FileText,
   CreditCard,
   RefreshCw,
-  BarChart3,
+  // BarChart3,
   Wallet,
   LogOut,
   Users,
@@ -44,7 +44,7 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
   { title: "ID Card", href: "/id-card", icon: CreditCard },
   { title: "Revenue", href: "/revenue", icon: Wallet },
   { title: "Renewals", href: "/renewals", icon: RefreshCw },
-  { title: "Reports", href: "/reports", icon: BarChart3 },
+  // { title: "Reports", href: "/reports", icon: BarChart3 },
 ];
 
 export const LOGOUT_ITEM = { title: "Log Out", icon: LogOut };

@@ -144,6 +144,8 @@ export function UploadField({
               {previewUrl ? (
                 <Image
                   src={previewUrl}
+                  width={40}
+                  height={40}
                   alt="Preview"
                   className="h-16 w-16 object-cover rounded-lg border"
                 />

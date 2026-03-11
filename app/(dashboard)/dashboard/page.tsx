@@ -143,13 +143,10 @@ export default function DashboardPage() {
           iconColor="text-purple-500"
         />
       </div>
-      {/* Charts Row */}
       <div className="grid grid-cols-2 gap-4 mb-6">
-        {/* <div className="col-span-2"> */}
         <RevenueByPlanChart data={revenueByPlan} />
 
         <PolicyGrowthChart data={growthData} />
-        {/* </div> */}
       </div>
 
       <div className="grid grid-cols-2 gap-4 mb-6">
@@ -172,7 +169,6 @@ export default function DashboardPage() {
           ]}
           data={recentPolicies}
         />
-        {/* </div> */}
       </div>
     </>
   );
